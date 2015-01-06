@@ -7,6 +7,9 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>shrio Maven Webapp</name>
   <url>http://maven.apache.org</url>
+   <properties>  
+        <shiro.version>1.2.2</shiro.version>  
+    </properties>  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -30,6 +33,26 @@
         <groupId>org.apache.geronimo.specs</groupId>
         <artifactId>geronimo-servlet_2.5_spec</artifactId>
         <version>1.2</version>
+    </dependency>
+    <dependency>  
+            <groupId>org.apache.shiro</groupId>  
+            <artifactId>shiro-core</artifactId>  
+            <version>${shiro.version}</version>  
+    </dependency>  
+    <dependency>  
+            <groupId>org.apache.shiro</groupId>  
+            <artifactId>shiro-web</artifactId>  
+            <version>${shiro.version}</version>  
+    </dependency>  
+    <dependency>  
+            <groupId>org.apache.shiro</groupId>  
+            <artifactId>shiro-cas</artifactId>  
+            <version>${shiro.version}</version>  
+    </dependency>  
+    <dependency>  
+            <groupId>org.apache.shiro</groupId>  
+            <artifactId>shiro-spring</artifactId>  
+            <version>${shiro.version}</version>  
     </dependency>
   </dependencies>
   <build>

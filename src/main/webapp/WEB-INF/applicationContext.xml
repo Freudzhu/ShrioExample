@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
-
+	<!--shrioFilter-->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<property name="loginUrl" value="/index.jsp" />
+		<property name="successUrl" value="/index/home.jsp" />
+		<property name="unauthorizedUrl" value="/index.jsp" />
+		<property name="filterChainDefinitions">
+			<value>
+				/home/login.do = anon
+				/** =  authc
+			</value>
+		</property>
+	</bean>
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="myRealm" />
+	</bean>
+	<bean id="myRealm" class="com.zhuhaihuan.domain.MyRealm" >
+		<property name="userService" ref="userService" />
+	</bean>
+	
+	<bean id="userService" class="com.zhuhaihuan.web.service.UserService" />
+	
 </beans>
